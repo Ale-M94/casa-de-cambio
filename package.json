@@ -1,0 +1,24 @@
+{
+  "name": "casa-de-cambio",
+  "version": "1.0.0",
+  "description": "Cotizaciones de distintas monedas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ale-M94/casa-de-cambio.git"
+  },
+  "author": "Alejandro Milotich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ale-M94/casa-de-cambio/issues"
+  },
+  "homepage": "https://github.com/Ale-M94/casa-de-cambio#readme",
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "cypress": "^13.16.0",
+    "http-server": "^14.1.1"
+  }
+}
