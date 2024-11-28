@@ -18,3 +18,7 @@ h1{
 .rojo {
     border-color: red;
 }
+
+#mensaje-error{
+    display: none;
+}
