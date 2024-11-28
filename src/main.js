@@ -16,15 +16,6 @@ fetch('https://api.frankfurter.app/latest')
         });
     });
 
-
-function validarDivisa(listaDivisas) {
-    if (listaDivisas.value === '') {
-        listaDivisas.classList.add('rojo');
-        return false;
-    };
-    return true;
-};
-
 function validarFecha(fecha) {;
     if (fecha.value === '') {
         fecha.classList.add('rojo');
@@ -35,9 +26,13 @@ function validarFecha(fecha) {;
 
 
 $consulta.onclick = function () {
-    if(!validarDivisa(listaDivisas) || !validarFecha(fecha)){
+    if(!validarFecha(fecha)){
         return;
     };
+
+    const fechaISO = fecha.value;
+    const [anio, mes, dia] = fechaISO.split('-');
+    const fechaFormateada = `${dia}-${mes}-${anio}`;
 
     document.querySelector('#resultado-consulta').style.display = "none";
     datosCotizaciones.innerHTML = '';
@@ -47,7 +42,7 @@ $consulta.onclick = function () {
     fecha.classList.remove('rojo');
     fetch(`https://api.frankfurter.app/${fecha.value}?base=${listaDivisas.value}`)
         .then(response => response.json())
-        .then(encabezado.textContent = `Cotizaciones del día ${fecha.value} del ${listaDivisas.value}`)
+        .then(encabezado.textContent = `Cotizaciones del día ${fechaFormateada} del ${listaDivisas.value}`)
         .then(responseJSON => {
             Object.entries(responseJSON.rates).forEach(([divisa, cotizacion]) => {
                 const fila = document.createElement('tr');
