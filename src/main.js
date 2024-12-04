@@ -1,11 +1,13 @@
-encabezado = document.querySelector('#header-cotizaciones');
-listaDivisas = document.querySelector('#selector-divisa');
-fecha = document.querySelector('#selector-fecha');
-$consulta = document.querySelector('#boton-consultar');
-$reiniciarConsulta = document.querySelector('#boton-reiniciar');
-datosCotizaciones = document.querySelector('#tbody-cotizaciones');
+const encabezado = document.querySelector('#header-cotizaciones');
+const listaDivisas = document.querySelector('#selector-divisa');
+const fecha = document.querySelector('#selector-fecha');
+const $consulta = document.querySelector('#boton-consultar');
+const $reiniciarConsulta = document.querySelector('#boton-reiniciar');
+const datosCotizaciones = document.querySelector('#tbody-cotizaciones');
 
-fetch('https://api.frankfurter.app/latest')
+const consultaCasaDeCambio = fetch('https://api.frankfurter.app/latest');
+
+consultaCasaDeCambio
     .then(response => response.json())
     .then(responseJSON => {
         Object.keys(responseJSON.rates).forEach(moneda => {
@@ -20,15 +22,15 @@ fetch('https://api.frankfurter.app/latest')
 function validarFecha(fecha) {;
     if (fecha.value === '') {
         fecha.classList.add('rojo');
-        return false;
+        return false
     };
-    return true;
+    return true
 };
 
 
 $consulta.onclick = function () {
     if(!validarFecha(fecha)){
-        return;
+        return
     };
 
     const fechaISO = fecha.value;
