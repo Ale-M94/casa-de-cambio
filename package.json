@@ -17,8 +17,11 @@
   },
   "homepage": "https://github.com/Ale-M94/casa-de-cambio#readme",
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
     "bootstrap": "^5.3.3",
     "cypress": "^13.16.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.14.0",
     "http-server": "^14.1.1"
   }
 }
